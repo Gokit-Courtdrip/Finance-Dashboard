@@ -119,10 +119,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            flex-grow: 1;
-            /* Allow h1 to take up available space */
-            justify-content: center;
-            /* Center its content (icon + text) */
         }
 
         .header-actions {
@@ -951,6 +947,10 @@
                     DANVAH Finance Dashboard
                 </h1>
                 <div class="header-actions">
+                    <button class="btn btn-secondary" id="exportDataBtn">
+                        <i class="fas fa-download"></i>
+                        <span class="hidden-mobile">Export</span>
+                    </button>
                 </div>
             </div>
         </div>
