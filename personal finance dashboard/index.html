@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇦🇪 UAE Finance Dashboard Pro++ | Advanced Personal Finance Manager</title>
+    <link rel="icon" type="image/png" href="Danvah-Logo.png">
+    <title>DANVAH Finance Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -15,18 +16,24 @@
             --uae-white: #FFFFFF;
             --uae-gold: #FFD700;
 
-            --primary: var(--uae-red);
-            --secondary: var(--uae-green);
-            --accent: var(--uae-gold);
-            --success: #28a745;
-            --danger: #dc3545;
+            /* Light theme defaults (not used, but good practice) */
+            --primary: #FF0000;
+            /* Red */
+            --secondary: #6c757d;
+            --accent: #00843D;
+            /* Green */
+            --success: #00843D;
+            /* Green */
+            --danger: #FF0000;
+            /* Red */
             --warning: #ffc107;
             --info: #17a2b8;
+            /* Blue for info toasts */
 
             --bg-primary: #f8f9fa;
-            --bg-secondary: var(--uae-white);
-            --bg-card: var(--uae-white);
-            --text-primary: var(--uae-black);
+            --bg-secondary: #FFFFFF;
+            --bg-card: #FFFFFF;
+            --text-primary: #000000;
             --text-secondary: #6c757d;
             --border-color: #dee2e6;
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -65,7 +72,7 @@
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--uae-red) 0%, var(--uae-green) 100%);
             color: white;
             padding: 15px 20px;
             border-radius: var(--border-radius);
@@ -112,6 +119,10 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-grow: 1;
+            /* Allow h1 to take up available space */
+            justify-content: center;
+            /* Center its content (icon + text) */
         }
 
         .header-actions {
@@ -144,7 +155,7 @@
         }
 
         .quick-btn {
-            background: linear-gradient(135deg, var(--accent) 0%, #ffed4e 100%);
+            background: linear-gradient(135deg, var(--uae-white) 0%, #f0f0f0 100%);
             border: none;
             padding: 12px 8px;
             border-radius: 8px;
@@ -152,14 +163,14 @@
             transition: var(--transition);
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--uae-black);
+            color: var(--uae-black) !important;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
         }
 
         .quick-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
         }
 
         .quick-btn:active {
@@ -251,7 +262,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, #ff4444 100%);
+            background: linear-gradient(135deg, var(--uae-red) 0%, #ff4444 100%);
             color: white;
         }
 
@@ -261,12 +272,12 @@
         }
 
         .btn-success {
-            background: var(--success);
+            background: var(--uae-green);
             color: white;
         }
 
         .btn-danger {
-            background: var(--danger);
+            background: var(--uae-red);
             color: white;
         }
 
@@ -327,15 +338,15 @@
         }
 
         .stat-card.income {
-            border-left-color: var(--success);
+            border-left-color: var(--uae-green);
         }
 
         .stat-card.expense {
-            border-left-color: var(--danger);
+            border-left-color: var(--uae-red);
         }
 
         .stat-card.balance {
-            border-left-color: var(--info);
+            border-left-color: var(--uae-white);
         }
 
         .stat-icon {
@@ -353,7 +364,7 @@
         }
 
         .stat-card.balance .stat-icon {
-            color: var(--info);
+            color: var(--uae-white);
         }
 
         .stat-value {
@@ -363,11 +374,11 @@
         }
 
         .stat-value.income {
-            color: var(--success);
+            color: var(--uae-green);
         }
 
         .stat-value.expense {
-            color: var(--danger);
+            color: var(--uae-red);
         }
 
         .stat-label {
@@ -393,11 +404,11 @@
         }
 
         .transaction-item.income {
-            border-left-color: var(--success);
+            border-left-color: var(--uae-green);
         }
 
         .transaction-item.expense {
-            border-left-color: var(--danger);
+            border-left-color: var(--uae-red);
         }
 
         .transaction-main {
@@ -434,11 +445,11 @@
         }
 
         .transaction-amount.income {
-            color: var(--success);
+            color: var(--uae-green);
         }
 
         .transaction-amount.expense {
-            color: var(--danger);
+            color: var(--uae-red);
         }
 
         .transaction-actions {
@@ -467,7 +478,7 @@
 
         /* Insights Panel */
         .insights-panel {
-            background: linear-gradient(135deg, var(--info) 0%, #20c997 100%);
+            background: linear-gradient(135deg, var(--uae-green) 0%, #00a04a 100%);
             color: white;
             padding: 20px;
             border-radius: var(--border-radius);
@@ -533,7 +544,7 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--success) 0%, var(--warning) 70%, var(--danger) 100%);
+            background: linear-gradient(90deg, var(--uae-green) 0%, var(--warning) 70%, var(--uae-red) 100%);
             transition: width 0.5s ease;
             border-radius: 4px;
         }
@@ -686,7 +697,7 @@
 
         .modal-header i {
             font-size: 3rem;
-            color: var(--danger);
+            color: var(--uae-red);
             margin-bottom: 10px;
         }
 
@@ -794,6 +805,42 @@
             }
         }
 
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            color: var(--uae-white);
+            /* Use pure white for maximum visibility */
+            /* A much brighter grey for better visibility */
+            font-size: 0.9rem;
+        }
+
+        .footer .developer-info {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer .social-links a {
+            color: var(--uae-white);
+            /* Brighter than text-secondary for better visibility */
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .footer .social-links a:hover {
+            color: var(--uae-white);
+            /* Use white for a brighter hover effect */
+            transform: translateY(-3px);
+        }
+
         /* Achievement Badges */
         .achievement-badge {
             display: inline-flex;
@@ -832,13 +879,59 @@
         /* Dark mode support */
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-primary: #1a1a1a;
-                --bg-secondary: #2d2d2d;
-                --bg-card: #2d2d2d;
-                --text-primary: #ffffff;
+                /* These are overridden by .dark-theme but good for initial detection */
+                --bg-primary: #000000;
+                --bg-secondary: #1c1c1c;
+                --bg-card: #1c1c1c;
+                --text-primary: #FFFFFF;
                 --text-secondary: #b0b0b0;
                 --border-color: #404040;
+                --primary: var(--uae-red);
+                --secondary: var(--uae-green);
+                --accent: var(--uae-white);
+                --success: var(--uae-green);
+                --danger: var(--uae-red);
+                --info: var(--uae-white);
             }
+
+            .chart-toggle {
+                display: flex;
+                border: 1px solid var(--border-color);
+                border-radius: 20px;
+                overflow: hidden;
+            }
+
+            .chart-toggle label {
+                padding: 4px 12px;
+                cursor: pointer;
+                transition: background-color 0.2s;
+                font-size: 0.8rem;
+                color: var(--text-secondary);
+            }
+
+            .chart-toggle input {
+                display: none;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            .chart-toggle input:checked+span {
+                color: var(--text-primary);
+                font-weight: 600;
+            }
+
+            .chart-toggle label:has(input:checked) {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
 
             .form-control {
                 background: var(--bg-card);
@@ -848,23 +941,16 @@
     </style>
 </head>
 
-<body>
+<body class="dark-theme">
     <div class="container">
         <!-- Header -->
         <div class="header">
             <div class="header-content">
                 <h1>
                     <i class="fas fa-chart-line"></i>
-                    UAE Finance Pro++
+                    DANVAH Finance Dashboard
                 </h1>
                 <div class="header-actions">
-                    <button class="btn btn-secondary" id="themeToggle">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    <button class="btn btn-secondary" onclick="dashboard.exportData()">
-                        <i class="fas fa-download"></i>
-                        <span class="hidden-mobile">Export</span>
-                    </button>
                 </div>
             </div>
         </div>
@@ -873,22 +959,22 @@
         <div class="quick-actions">
             <h3><i class="fas fa-zap"></i> Quick Add</h3>
             <div class="quick-buttons">
-                <button class="quick-btn" onclick="dashboard.quickAdd('Coffee', 15, 'expense')">
+                <button class="quick-btn" data-quick-add='{"desc": "Coffee", "amount": 15, "type": "expense"}'>
                     ☕ Coffee<br><small>AED 15</small>
                 </button>
-                <button class="quick-btn" onclick="dashboard.quickAdd('Fuel', 120, 'expense')">
+                <button class="quick-btn" data-quick-add='{"desc": "Fuel", "amount": 120, "type": "expense"}'>
                     ⛽ Fuel<br><small>AED 120</small>
                 </button>
-                <button class="quick-btn" onclick="dashboard.quickAdd('Grocery', 200, 'expense')">
+                <button class="quick-btn" data-quick-add='{"desc": "Grocery", "amount": 200, "type": "expense"}'>
                     🛒 Grocery<br><small>AED 200</small>
                 </button>
-                <button class="quick-btn" onclick="dashboard.quickAdd('Parking', 5, 'expense')">
+                <button class="quick-btn" data-quick-add='{"desc": "Parking", "amount": 5, "type": "expense"}'>
                     🅿️ Parking<br><small>AED 5</small>
                 </button>
-                <button class="quick-btn" onclick="dashboard.quickAdd('Lunch', 35, 'expense')">
+                <button class="quick-btn" data-quick-add='{"desc": "Lunch", "amount": 35, "type": "expense"}'>
                     🍽️ Lunch<br><small>AED 35</small>
                 </button>
-                <button class="quick-btn" onclick="dashboard.quickAdd('Transport', 25, 'expense')">
+                <button class="quick-btn" data-quick-add='{"desc": "Transport", "amount": 25, "type": "expense"}'>
                     🚌 Transport<br><small>AED 25</small>
                 </button>
             </div>
@@ -923,6 +1009,26 @@
                 <div class="stat-icon"><i class="fas fa-list"></i></div>
                 <div class="stat-value" id="totalTransactions">0</div>
                 <div class="stat-label">Transactions</div>
+            </div>
+        </div>
+
+        <!-- Management Section -->
+        <div class="card">
+            <h3><i class="fas fa-cogs"></i> Management</h3>
+            <div class="management-buttons">
+                <button class="management-btn" id="openBudgetsModalBtn" style="--btn-color: var(--uae-green);">
+                    <i class="fas fa-bullseye"></i> Budgets
+                </button>
+                <button class="management-btn" id="openGoalsModalBtn"
+                    style="--btn-color: var(--uae-white); --text-color: var(--uae-black);">
+                    <i class="fas fa-flag-checkered"></i> Goals
+                </button>
+                <button class="management-btn" id="openRecurringModalBtn"
+                    style="--btn-color: var(--uae-black); border: 1px solid var(--uae-white);"><i
+                        class="fas fa-sync-alt"></i> Recurring</button>
+                <button class="management-btn" id="openReportsModalBtn" style="--btn-color: var(--uae-red);"><i
+                        class="fas fa-file-invoice-dollar"></i>
+                    Reports</button>
             </div>
         </div>
 
@@ -985,23 +1091,24 @@
 
             <!-- Analytics Card -->
             <div class="card">
-                <h3><i class="fas fa-chart-pie"></i> Analytics</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3><i class="fas fa-chart-pie"></i> Analytics</h3>
+                    <div class="chart-toggle">
+                        <label>
+                            <input type="radio" name="chartToggle" value="trend" checked>
+                            <span>Trend</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="chartToggle" value="breakdown">
+                            <span>Breakdown</span>
+                        </label>
+                    </div>
+                </div>
                 <div class="chart-container">
                     <canvas id="expenseChart"></canvas>
                 </div>
                 <div id="categoryBreakdown"></div>
             </div>
-        </div>
-
-        <!-- Budget Tracker -->
-        <div class="card">
-            <h3><i class="fas fa-bullseye"></i> Monthly Budget Tracker</h3>
-            <div id="budgetTracker">
-                <!-- Budget items will be populated here -->
-            </div>
-            <button class="btn btn-secondary" onclick="dashboard.setBudget()" style="width: 100%; margin-top: 15px;">
-                <i class="fas fa-cog"></i> Set Budget Limits
-            </button>
         </div>
 
         <!-- Controls Bar -->
@@ -1011,7 +1118,7 @@
                     <input type="text" id="searchInput" class="form-control" placeholder="🔍 Search transactions...">
                 </div>
                 <div class="form-group mb-0">
-                    <select id="filterType" class="form-control" onchange="dashboard.filterTransactions()">
+                    <select id="filterType" class="form-control">
                         <option value="all">All Transactions</option>
                         <option value="income">💰 Income Only</option>
                         <option value="expense">💸 Expenses Only</option>
@@ -1021,16 +1128,64 @@
                     </select>
                 </div>
                 <div>
-                    <button class="btn btn-secondary" onclick="dashboard.clearFilters()">
+                    <button class="btn btn-secondary" id="clearFiltersBtn">
                         <i class="fas fa-times"></i> Clear
                     </button>
                 </div>
             </div>
         </div>
 
+        <!-- Reports Section (Hidden, content will be moved) -->
+        <div id="reports-source" class="hidden">
+            <h3><i class="fas fa-file-invoice-dollar"></i> Monthly Reports</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">Generate a detailed summary for any month.</p>
+            <div class="controls-grid" style="grid-template-columns: 1fr 1fr auto; align-items: end; gap: 10px;">
+                <div class="form-group mb-0">
+                    <label for="reportMonth">Month</label>
+                    <select id="reportMonth" class="form-control"></select>
+                </div>
+                <div class="form-group mb-0">
+                    <label for="reportYear">Year</label>
+                    <select id="reportYear" class="form-control"></select>
+                </div>
+                <button id="generateReportBtn" class="btn btn-primary">
+                    <i class="fas fa-cogs"></i><span class="hidden-mobile">Generate</span></button>
+            </div>
+        </div>
+
+        <!-- Management Buttons Style -->
+        <style>
+            .management-buttons {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 10px;
+            }
+
+            .management-btn {
+                background: var(--btn-color, var(--primary));
+                color: var(--text-color, white);
+                border: none;
+                padding: 12px 8px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: var(--transition);
+                font-weight: 600;
+            }
+        </style>
+
         <!-- Transactions List -->
         <div class="card">
-            <h3><i class="fas fa-list"></i> Recent Transactions</h3>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3><i class="fas fa-list"></i> Recent Transactions</h3>
+                <div id="bulk-actions-container" style="display: none;">
+                    <label for="selectAllCheckbox" style="margin-right: 15px; font-size: 0.9rem; cursor: pointer;">
+                        <input type="checkbox" id="selectAllCheckbox" style="margin-right: 5px;"> Select All
+                    </label>
+                    <button id="deleteSelectedBtn" class="btn btn-danger btn-small">
+                        <i class="fas fa-trash-alt"></i> Delete Selected
+                    </button>
+                </div>
+            </div>
             <div id="transactionsList">
                 <div class="empty-state">
                     <i class="fas fa-receipt"></i>
@@ -1048,6 +1203,28 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="developer-info">Developed by Arshia Movahed</div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/4rshia_mv" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/arshia-movahed" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.freelancer.com/u/ArshiaMv" target="_blank" title="Freelancer">
+                <i class="fas fa-briefcase"></i>
+            </a>
+            <a href="https://github.com/Gokit-Courtdrip" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://wa.me/971503500109" target="_blank" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </footer>
+
     <!-- Delete Confirmation Modal -->
     <div class="modal" id="deleteModal">
         <div class="modal-content">
@@ -1057,8 +1234,8 @@
                 <p>Are you sure you want to delete this transaction? This action cannot be undone.</p>
             </div>
             <div class="modal-actions">
-                <button class="btn btn-secondary" onclick="closeDeleteModal()">Cancel</button>
-                <button class="btn btn-danger" onclick="dashboard.deleteTransaction()">
+                <button class="btn btn-secondary" id="cancelDeleteBtn">Cancel</button>
+                <button class="btn btn-danger" id="confirmDeleteBtn">
                     <i class="fas fa-trash"></i> Delete
                 </button>
             </div>
@@ -1092,10 +1269,156 @@
                 </div>
             </div>
             <div class="modal-actions">
-                <button class="btn btn-secondary" onclick="closeBudgetModal()">Cancel</button>
-                <button class="btn btn-primary" onclick="dashboard.saveBudget()">
+                <button class="btn btn-secondary" id="cancelBudgetBtn">Cancel</button>
+                <button class="btn btn-primary" id="saveBudgetBtn">
                     <i class="fas fa-save"></i> Save Budget
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recurring Transaction Modal -->
+    <div class="modal" id="recurringModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-sync-alt"></i>
+                <h4 id="recurringModalTitle">Add Recurring Transaction</h4>
+            </div>
+            <form id="recurringForm">
+                <input type="hidden" id="recurringId">
+                <div class="form-group">
+                    <label for="recurringDescription">Description *</label>
+                    <input type="text" id="recurringDescription" class="form-control" placeholder="e.g., Monthly Rent"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="recurringAmount">Amount (AED) *</label>
+                    <input type="number" id="recurringAmount" class="form-control" placeholder="0.00" step="0.01"
+                        min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="recurringType">Type *</label>
+                    <select id="recurringType" class="form-control" required>
+                        <option value="expense">💸 Expense</option>
+                        <option value="income">💰 Income</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="recurringFrequency">Frequency *</label>
+                    <select id="recurringFrequency" class="form-control" required>
+                        <option value="monthly">Monthly</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="yearly">Yearly</option>
+                    </select>
+                </div>
+            </form>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="cancelRecurringBtn">Cancel</button>
+                <button class="btn btn-primary" id="saveRecurringBtn">
+                    <i class="fas fa-save"></i> Save
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Budgets Modal -->
+    <div class="modal" id="budgetsModal">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header" style="text-align: left; margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h4 style="color: var(--primary); margin: 0;"><i class="fas fa-bullseye"></i> Monthly Budgets</h4>
+                    <button class="btn btn-secondary btn-small"
+                        onclick="document.getElementById('budgetsModal').classList.remove('active')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+            </div>
+            <div id="budgetTracker" style="max-height: 50vh; overflow-y: auto; padding-right: 10px;">
+                <!-- Budget items will be populated here -->
+            </div>
+            <button class="btn btn-secondary" id="setBudgetBtn" style="width: 100%; margin-top: 15px;">
+                <i class="fas fa-cog"></i> Manage Budget Limits
+            </button>
+        </div>
+    </div>
+
+    <!-- Recurring Modal (for viewing) -->
+    <div class="modal" id="recurringViewModal">
+        <div class="modal-content" style="max-width: 700px;">
+            <div class="modal-header" style="text-align: left; margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h4 style="color: var(--primary); margin: 0;"><i class="fas fa-sync-alt"></i> Recurring
+                        Transactions</h4>
+                    <button class="btn btn-secondary btn-small"
+                        onclick="document.getElementById('recurringViewModal').classList.remove('active')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+            </div>
+            <div id="recurringTransactionsList" style="max-height: 50vh; overflow-y: auto; padding-right: 10px;">
+                <!-- Recurring transactions will be populated here -->
+            </div>
+            <button class="btn btn-primary" id="addRecurringBtn" style="width: 100%; margin-top: 15px;">
+                <i class="fas fa-plus"></i> Add New Recurring
+            </button>
+        </div>
+    </div>
+
+    <!-- Reports Modal (for selection) -->
+    <div class="modal" id="reportsViewModal">
+        <div class="modal-content" style="max-width: 500px;">
+            <!-- Content from Reports Section card will go here -->
+        </div>
+    </div>
+
+    <!-- Goals Modal -->
+    <div class="modal" id="goalsModal">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header" style="text-align: left; margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h4 style="color: var(--primary); margin: 0;"><i class="fas fa-flag-checkered"></i> Savings Goals
+                    </h4>
+                    <button class="btn btn-secondary btn-small"
+                        onclick="document.getElementById('goalsModal').classList.remove('active')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+            </div>
+            <div id="goalsList" style="max-height: 50vh; overflow-y: auto; padding-right: 10px;">
+                <!-- Goals will be populated here -->
+            </div>
+            <form id="goalForm" class="mt-3">
+                <div class="controls-grid" style="grid-template-columns: 2fr 1fr auto; align-items: end; gap: 10px;">
+                    <div class="form-group mb-0">
+                        <input type="text" id="goalName" class="form-control" placeholder="e.g., New Car" required>
+                    </div>
+                    <div class="form-group mb-0">
+                        <input type="number" id="goalAmount" class="form-control" placeholder="Target (AED)" min="1"
+                            required>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add Goal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Report Modal -->
+    <div class="modal" id="reportModal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header" style="text-align: left; margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h4 id="reportModalTitle" style="color: var(--primary); margin: 0;">Monthly Report</h4>
+                        <p id="reportModalSubtitle" style="color: var(--text-secondary); margin: 0;"></p>
+                    </div>
+                    <button class="btn btn-secondary btn-small"
+                        onclick="document.getElementById('reportModal').classList.remove('active')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+            </div>
+            <div id="reportContent" style="max-height: 70vh; overflow-y: auto; padding-right: 10px;">
+                <!-- Report content will be injected here -->
             </div>
         </div>
     </div>
@@ -1106,15 +1429,20 @@
                 this.transactions = JSON.parse(localStorage.getItem('uae_transactions_pro') || '[]');
                 this.budgets = JSON.parse(localStorage.getItem('uae_budgets') || '{}');
                 this.achievements = JSON.parse(localStorage.getItem('uae_achievements') || '[]');
+                this.goals = JSON.parse(localStorage.getItem('uae_goals') || '[]');
+                this.recurring = JSON.parse(localStorage.getItem('uae_recurring') || '[]');
                 this.editingId = null;
                 this.deleteId = null;
                 this.chart = null;
+                this.chartType = 'trend'; // 'trend' or 'breakdown'
+                this.selectedTransactions = new Set();
 
                 this.initializeEventListeners();
                 this.updateDisplay();
-                this.initializeChart();
+                this.populateReportSelectors();
                 this.checkAchievements();
                 this.generateInsights();
+                this.processRecurringTransactions();
 
                 // Auto-save every 30 seconds
                 setInterval(() => this.autoSave(), 30000);
@@ -1137,11 +1465,6 @@
                     this.updateNotesCounter();
                 });
 
-                // Theme toggle
-                document.getElementById('themeToggle').addEventListener('click', () => {
-                    this.toggleTheme();
-                });
-
                 // Auto-categorize based on description
                 document.getElementById('description').addEventListener('input', (e) => {
                     this.autoSuggestCategory(e.target.value);
@@ -1149,6 +1472,124 @@
 
                 // Touch/swipe support for mobile
                 this.initializeTouchSupport();
+
+                // Header buttons
+                document.getElementById('exportDataBtn').addEventListener('click', () => this.exportData());
+
+                // Quick add buttons
+                document.querySelectorAll('.quick-btn[data-quick-add]').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const data = JSON.parse(btn.dataset.quickAdd);
+                        this.quickAdd(data.desc, data.amount, data.type);
+                    });
+                });
+
+                document.getElementById('saveBudgetBtn').addEventListener('click', () => this.saveBudget());
+                document.getElementById('cancelBudgetBtn').addEventListener('click', () => this.closeBudgetModal());
+
+                // Filter buttons
+                document.getElementById('filterType').addEventListener('change', () => this.filterTransactions());
+                document.getElementById('clearFiltersBtn').addEventListener('click', () => this.clearFilters());
+
+                // Delete modal buttons
+                document.getElementById('cancelDeleteBtn').addEventListener('click', () => this.closeDeleteModal());
+                document.getElementById('confirmDeleteBtn').addEventListener('click', () => this.deleteTransaction());
+
+                // Recurring modal buttons
+                document.getElementById('saveRecurringBtn').addEventListener('click', () => this.saveRecurringTransaction());
+                document.getElementById('cancelRecurringBtn').addEventListener('click', () => this.closeRecurringModal());
+
+                // Chart toggle
+                document.querySelectorAll('input[name="chartToggle"]').forEach(radio => {
+                    radio.addEventListener('change', (e) => this.toggleChartType(e.target.value));
+                });
+
+                // Bulk delete actions
+                document.getElementById('selectAllCheckbox').addEventListener('change', (e) => this.toggleSelectAll(e.target.checked));
+                document.getElementById('deleteSelectedBtn').addEventListener('click', () => this.deleteSelectedTransactions());
+
+                // Report generator
+                document.getElementById('generateReportBtn').addEventListener('click', () => this.generateReport());
+
+                // Goals Modal button
+                document.getElementById('openGoalsModalBtn').addEventListener('click', () => this.openGoalsModal());
+
+                // Budgets Modal button
+                document.getElementById('openBudgetsModalBtn').addEventListener('click', () => this.openBudgetsModal());
+                document.getElementById('setBudgetBtn').addEventListener('click', () => this.setBudget());
+
+                // Recurring and Reports Modal buttons
+                document.getElementById('openRecurringModalBtn').addEventListener('click', () => this.openRecurringViewModal());
+                document.getElementById('openReportsModalBtn').addEventListener('click', () => this.openReportsViewModal());
+                // Add recurring button
+                // This is now initialized in initializeTabs after the button is moved.
+
+                // Budget buttons
+                // These are also moved to initializeTabs.
+
+
+                // Dynamic event listeners for lists (transactions, goals, etc.)
+                this.setupDynamicEventListeners();
+            }
+
+            openGoalsModal() {
+                this.displayGoals(); // Refresh goals list every time it's opened
+                document.getElementById('goalsModal').classList.add('active');
+            }
+
+            openBudgetsModal() {
+                this.updateBudgetTracker();
+                document.getElementById('budgetsModal').classList.add('active');
+            }
+
+            openRecurringViewModal() {
+                this.displayRecurringTransactions();
+                document.getElementById('recurringViewModal').classList.add('active');
+            }
+
+            openReportsViewModal() {
+                const reportsSource = document.getElementById('reports-source');
+                document.getElementById('reportsViewModal').querySelector('.modal-content').innerHTML = reportsSource.innerHTML;
+                document.getElementById('reportsViewModal').classList.add('active');
+                document.querySelector('#reportsViewModal #generateReportBtn').addEventListener('click', () => this.generateReport());
+            }
+
+            setupDynamicEventListeners() {
+                // For transaction edit/delete
+                document.getElementById('transactionsList').addEventListener('click', (e) => {
+                    const editBtn = e.target.closest('.edit-btn');
+                    const deleteBtn = e.target.closest('.delete-btn');
+                    const checkbox = e.target.closest('.transaction-checkbox');
+                    if (checkbox) {
+                        this.toggleTransactionSelection(parseInt(checkbox.dataset.id), checkbox.checked);
+                    }
+                    if (editBtn) {
+                        this.editTransaction(parseInt(editBtn.dataset.id));
+                    }
+                    if (deleteBtn) {
+                        this.confirmDelete(parseInt(deleteBtn.dataset.id));
+                    }
+                });
+
+                // For goal deletion
+                document.getElementById('goalsList').addEventListener('click', (e) => {
+                    const deleteBtn = e.target.closest('.delete-goal-btn');
+                    if (deleteBtn) {
+                        this.deleteGoal(parseInt(deleteBtn.dataset.id));
+                    }
+                });
+
+                // For recurring transaction modal and deletion
+                document.getElementById('recurringTransactionsList').addEventListener('click', (e) => {
+                    const editBtn = e.target.closest('.edit-recurring-btn');
+                    const deleteBtn = e.target.closest('.delete-recurring-btn');
+                    if (editBtn) {
+                        this.openRecurringModal(parseInt(editBtn.dataset.id));
+                    }
+                    if (deleteBtn) {
+                        this.deleteRecurringTransaction(parseInt(deleteBtn.dataset.id));
+                    }
+                });
             }
 
             initializeTouchSupport() {
@@ -1301,9 +1742,35 @@
                 this.updateChart();
                 this.generateInsights();
 
-                document.getElementById('deleteModal').classList.remove('active');
+                this.closeDeleteModal();
                 this.showToast('Transaction deleted successfully!', 'success');
                 this.deleteId = null;
+            }
+
+            toggleTransactionSelection(id, isSelected) {
+                if (isSelected) {
+                    this.selectedTransactions.add(id);
+                } else {
+                    this.selectedTransactions.delete(id);
+                }
+                this.updateBulkActionsUI();
+            }
+
+            toggleSelectAll(isChecked) {
+                const checkboxes = document.querySelectorAll('.transaction-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = isChecked;
+                    this.toggleTransactionSelection(parseInt(checkbox.dataset.id), isChecked);
+                });
+            }
+
+            deleteSelectedTransactions() {
+                this.transactions = this.transactions.filter(t => !this.selectedTransactions.has(t.id));
+                this.selectedTransactions.clear();
+                this.saveTransactions();
+                this.updateDisplay();
+                this.updateChart();
+                this.showToast(`${this.selectedTransactions.size} transactions deleted.`, 'success');
             }
 
             searchTransactions(query) {
@@ -1376,10 +1843,15 @@
 
                 const sortedTransactions = transactions.sort((a, b) => b.timestamp - a.timestamp);
 
+                const isAnyTransaction = this.transactions.length > 0;
+                document.getElementById('bulk-actions-container').style.display = isAnyTransaction ? 'flex' : 'none';
+
                 container.innerHTML = sortedTransactions.map(transaction => `
                     <div class="transaction-item ${transaction.type} slide-in" data-id="${transaction.id}">
                         <div class="transaction-main">
                             <div class="transaction-info">
+                                <input type="checkbox" class="transaction-checkbox" data-id="${transaction.id}" style="margin-right: 15px; transform: scale(1.2);"
+                                    ${this.selectedTransactions.has(transaction.id) ? 'checked' : ''}>
                                 <div class="transaction-desc">
                                     ${this.highlightSearch(transaction.description, searchQuery)}
                                     ${transaction.category ? `<span style="color: var(--text-secondary); font-size: 0.8rem; margin-left: 8px;">${this.getCategoryIcon(transaction.category)} ${transaction.category}</span>` : ''}
@@ -1392,10 +1864,10 @@
                                 ${transaction.type === 'income' ? '+' : '-'}${this.formatCurrency(transaction.amount)}
                             </div>
                             <div class="transaction-actions">
-                                <button class="btn btn-small btn-secondary" onclick="dashboard.editTransaction(${transaction.id})" title="Edit">
+                                <button class="btn btn-small btn-secondary edit-btn" data-id="${transaction.id}" title="Edit">
                                     <i class="fas fa-edit"></i>
                                 </button>
-                                <button class="btn btn-small btn-danger" onclick="dashboard.confirmDelete(${transaction.id})" title="Delete">
+                                <button class="btn btn-small btn-danger delete-btn" data-id="${transaction.id}" title="Delete">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </div>
@@ -1452,42 +1924,155 @@
 
                 this.displayTransactions(this.transactions);
                 this.updateBudgetTracker();
+                this.displayGoals();
+                this.displayRecurringTransactions();
+            }
+
+            updateBulkActionsUI() {
+                const deleteBtn = document.getElementById('deleteSelectedBtn');
+                const hasSelection = this.selectedTransactions.size > 0;
+                deleteBtn.style.display = hasSelection ? 'inline-flex' : 'none';
+                if (hasSelection) {
+                    deleteBtn.innerHTML = `<i class="fas fa-trash-alt"></i> Delete (${this.selectedTransactions.size})`;
+                }
+            }
+
+            fullUpdate() {
+                this.displayGoals();
+            }
+
+            toggleChartType(type) {
+                this.chartType = type;
+                this.initializeChart(); // Re-initialize to change type and options
+                this.updateChart();
             }
 
             initializeChart() {
                 const ctx = document.getElementById('expenseChart').getContext('2d');
+                Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim();
+
+                if (this.chart) {
+                    this.chart.destroy();
+                }
+
                 this.chart = new Chart(ctx, {
-                    type: 'doughnut',
+                    type: 'line',
                     data: {
                         labels: [],
                         datasets: [{
+                            label: 'Net Balance (AED)',
                             data: [],
-                            backgroundColor: [
-                                '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0',
-                                '#9966FF', '#FF9F40', '#FF6384', '#C9CBCF'
-                            ],
-                            borderWidth: 2,
-                            borderColor: '#fff'
+                            borderColor: 'var(--primary)',
+                            backgroundColor: 'rgba(255, 0, 0, 0.1)',
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: 'var(--primary)',
+                            pointRadius: 3,
+                            pointHoverRadius: 6
                         }]
                     },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
-                            legend: {
-                                position: 'bottom',
-                                labels: {
-                                    padding: 20,
-                                    usePointStyle: true
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: (context) => `Balance: ${this.formatCurrency(context.raw)}`
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: {
+                                    color: 'rgba(128, 128, 128, 0.1)'
+                                },
+                                ticks: {
+                                    maxRotation: 0,
+                                    autoSkip: true,
+                                    maxTicksLimit: 7
+                                }
+                            },
+                            y: {
+                                grid: {
+                                    color: 'rgba(128, 128, 128, 0.2)'
+                                },
+                                ticks: {
+                                    callback: (value) => this.formatCurrency(value)
                                 }
                             }
                         }
                     }
                 });
-                this.updateChart();
             }
 
             updateChart() {
+                if (this.chartType === 'trend') {
+                    this.updateTrendChart();
+                } else {
+                    this.updateBreakdownChart();
+                }
+            }
+
+            updateTrendChart() {
+                const sortedTransactions = [...this.transactions].sort((a, b) => a.timestamp - b.timestamp);
+                let currentBalance = 0;
+                const balanceHistory = [];
+                const labels = [];
+
+                if (sortedTransactions.length > 0) {
+                    const firstDate = new Date(sortedTransactions[0].timestamp);
+                    firstDate.setDate(firstDate.getDate() - 1);
+                    labels.push(firstDate.toLocaleDateString('en-AE', { day: 'numeric', month: 'short' }));
+                    balanceHistory.push(0);
+                }
+
+                sortedTransactions.forEach(t => {
+                    currentBalance += t.type === 'income' ? t.amount : -t.amount;
+                    balanceHistory.push(currentBalance);
+                    labels.push(new Date(t.timestamp).toLocaleDateString('en-AE', { day: 'numeric', month: 'short' }));
+                });
+
+                this.chart.config.type = 'line';
+                this.chart.data.labels = labels;
+                this.chart.data.datasets = [{
+                    label: 'Net Balance (AED)',
+                    data: balanceHistory,
+                    borderColor: 'var(--primary)',
+                    backgroundColor: 'rgba(255, 0, 0, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: 'var(--primary)',
+                    pointRadius: 3,
+                    pointHoverRadius: 6
+                }];
+                this.chart.options = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `Balance: ${this.formatCurrency(context.raw)}`
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(128, 128, 128, 0.1)' },
+                            ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 7 }
+                        },
+                        y: {
+                            grid: { color: 'rgba(128, 128, 128, 0.2)' },
+                            ticks: { callback: (value) => this.formatCurrency(value) }
+                        }
+                    }
+                };
+                this.chart.update();
+                document.getElementById('categoryBreakdown').innerHTML = '';
+            }
+
+            updateBreakdownChart() {
                 const expenses = this.transactions.filter(t => t.type === 'expense');
                 const categoryTotals = {};
 
@@ -1496,15 +2081,29 @@
                     categoryTotals[category] = (categoryTotals[category] || 0) + transaction.amount;
                 });
 
-                const labels = Object.keys(categoryTotals).map(cat =>
-                    `${this.getCategoryIcon(cat)} ${cat.charAt(0).toUpperCase() + cat.slice(1)}`
-                );
+                const labels = Object.keys(categoryTotals).map(cat => `${this.getCategoryIcon(cat)} ${cat.charAt(0).toUpperCase() + cat.slice(1)}`);
                 const data = Object.values(categoryTotals);
 
+                this.chart.config.type = 'doughnut';
                 this.chart.data.labels = labels;
-                this.chart.data.datasets[0].data = data;
+                this.chart.data.datasets = [{
+                    data: data,
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#C9CBCF'],
+                    borderWidth: 2,
+                    borderColor: 'var(--bg-card)'
+                }];
+                this.chart.options = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { padding: 20, usePointStyle: true }
+                        }
+                    },
+                    scales: {} // Clear scales for doughnut
+                };
                 this.chart.update();
-
                 this.updateCategoryBreakdown(categoryTotals);
             }
 
@@ -1606,7 +2205,7 @@
                     const isOverBudget = spent > budget;
 
                     return `
-                        <div class="budget-item">
+                        <div class="budget-item"> 
                             <div class="budget-header">
                                 <span class="budget-name">${this.getCategoryIcon(category)} ${category.charAt(0).toUpperCase() + category.slice(1)}</span>
                                 <span class="budget-amount ${isOverBudget ? 'expense' : ''}">${this.formatCurrency(spent)} / ${this.formatCurrency(budget)}</span>
@@ -1615,11 +2214,342 @@
                                 <div class="progress-fill" style="width: ${percentage}%; background: ${isOverBudget ? 'var(--danger)' : percentage > 80 ? 'var(--warning)' : 'var(--success)'}"></div>
                             </div>
                             ${isOverBudget ? '<div style="color: var(--danger); font-size: 0.8rem; margin-top: 5px;"><i class="fas fa-exclamation-triangle"></i> Over budget!</div>' : ''}
-                        </div>
+                        </div> 
                     `;
                 }).join('');
 
                 container.innerHTML = budgetItems;
+            }
+
+            openRecurringAddModal() {
+                document.getElementById('recurringViewModal').classList.remove('active');
+                // This function is for the new button
+                this.openRecurringModal();
+            }
+
+            openRecurringModal(id = null) {
+                const modal = document.getElementById('recurringModal');
+                const form = document.getElementById('recurringForm');
+                form.reset();
+                document.getElementById('addRecurringBtn').addEventListener('click', () => this.openRecurringAddModal());
+                document.getElementById('recurringId').value = '';
+
+                if (id) {
+                    const item = this.recurring.find(r => r.id === id);
+                    if (item) {
+                        document.getElementById('recurringModalTitle').textContent = 'Edit Recurring Transaction';
+                        document.getElementById('recurringId').value = item.id;
+                        document.getElementById('recurringDescription').value = item.description;
+                        document.getElementById('recurringAmount').value = item.amount;
+                        document.getElementById('recurringType').value = item.type;
+                        document.getElementById('recurringFrequency').value = item.frequency;
+                    }
+                } else {
+                    document.getElementById('recurringModalTitle').textContent = 'Add Recurring Transaction';
+                }
+
+                modal.classList.add('active');
+            }
+
+            closeRecurringModal() {
+                document.getElementById('recurringModal').classList.remove('active');
+            }
+
+            saveRecurringTransaction() {
+                const id = document.getElementById('recurringId').value;
+                const description = document.getElementById('recurringDescription').value.trim();
+                const amount = parseFloat(document.getElementById('recurringAmount').value);
+                const type = document.getElementById('recurringType').value;
+                const frequency = document.getElementById('recurringFrequency').value;
+
+                if (!description || !amount || amount <= 0) {
+                    this.showToast('Please fill in all fields.', 'error');
+                    return;
+                }
+
+                if (id) { // Editing existing
+                    const index = this.recurring.findIndex(r => r.id == id);
+                    if (index > -1) {
+                        this.recurring[index] = { ...this.recurring[index], description, amount, type, frequency };
+                        this.showToast('Recurring transaction updated!', 'success');
+                    }
+                } else { // Adding new
+                    const newItem = {
+                        id: Date.now(),
+                        description,
+                        amount,
+                        type,
+                        frequency,
+                        category: this.suggestCategoryFromDescription(description),
+                        lastAdded: new Date(0).toISOString() // Set to epoch to allow immediate processing if needed
+                    };
+                    this.recurring.push(newItem);
+                    this.showToast('Recurring transaction added!', 'success');
+                }
+
+                this.saveRecurring();
+                this.displayRecurringTransactions();
+                this.closeRecurringModal();
+            }
+
+            deleteRecurringTransaction(id) {
+                this.recurring = this.recurring.filter(r => r.id !== id);
+                this.saveRecurring();
+                this.displayRecurringTransactions();
+                this.showToast('Recurring transaction deleted.', 'success');
+            }
+
+            displayRecurringTransactions() {
+                const container = document.getElementById('recurringTransactionsList');
+                if (this.recurring.length === 0) {
+                    container.innerHTML = `<div class="empty-state" style="padding: 20px 0;"><i class="fas fa-sync-alt"></i><div>No recurring items. Add one to automate your tracking!</div></div>`;
+                    return;
+                }
+
+                container.innerHTML = this.recurring.map(item => {
+                    const nextDueDate = this.calculateNextDueDate(new Date(item.lastAdded), item.frequency);
+                    return `
+                        <div class="transaction-item ${item.type}" style="align-items: center;">
+                            <div class="transaction-info">
+                                <div class="transaction-desc">${item.description} (${item.frequency})</div>
+                                <div class="transaction-date">
+                                    Next due: ${nextDueDate.toLocaleDateString('en-AE')}
+                                </div>
+                            </div>
+                            <div class="transaction-amount ${item.type}" style="margin-right: 10px;">
+                                ${item.type === 'income' ? '+' : '-'}${this.formatCurrency(item.amount)}
+                            </div>
+                            <div class="transaction-actions">
+                                <button class="btn btn-small btn-secondary edit-recurring-btn" data-id="${item.id}" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-small btn-danger delete-recurring-btn" data-id="${item.id}" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            saveRecurring() {
+                localStorage.setItem('uae_recurring', JSON.stringify(this.recurring));
+            }
+
+            initializeGoals() {
+                document.getElementById('goalForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.addGoal();
+                });
+            }
+
+            addGoal() {
+                const nameInput = document.getElementById('goalName');
+                const amountInput = document.getElementById('goalAmount');
+                const name = nameInput.value.trim();
+                const amount = parseFloat(amountInput.value);
+
+                if (!name || !amount || amount <= 0) {
+                    this.showToast('Please enter a valid goal name and target amount.', 'error');
+                    return;
+                }
+
+                const goal = {
+                    id: Date.now(),
+                    name,
+                    amount
+                };
+
+                this.goals.push(goal);
+                this.saveGoals();
+                this.displayGoals();
+                document.getElementById('goalForm').reset();
+                this.showToast(`🎯 Goal "${name}" added!`, 'success');
+            }
+
+            deleteGoal(id) {
+                this.goals = this.goals.filter(g => g.id !== id);
+                this.saveGoals();
+                this.displayGoals();
+                this.showToast('Goal removed successfully.', 'success');
+            }
+
+            displayGoals() {
+                const container = document.getElementById('goalsList');
+                const netBalance = this.calculateNetBalance();
+
+                if (this.goals.length === 0) {
+                    container.innerHTML = `<div class="empty-state" style="padding: 20px 0;"><i class="fas fa-flag-checkered"></i><div>No savings goals yet. Add one below!</div></div>`;
+                    return;
+                }
+
+                container.innerHTML = this.goals.map(goal => {
+                    const progress = Math.min((netBalance / goal.amount) * 100, 100);
+                    const isComplete = netBalance >= goal.amount;
+
+                    return `
+                        <div class="budget-item"> 
+                            <div class="budget-header">
+                                <span class="budget-name">${isComplete ? '🏆' : '🎯'} ${goal.name}</span>
+                                <span class="budget-amount">
+                                    ${this.formatCurrency(goal.amount)}
+                                    <button class="btn btn-small btn-danger delete-goal-btn" data-id="${goal.id}" style="margin-left: 10px; padding: 4px 8px;"><i class="fas fa-times"></i></button>
+                                </span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${progress}%; background: ${isComplete ? 'var(--accent)' : 'var(--info)'};"></div>
+                            </div>
+                        </div>`;
+                }).join('');
+            }
+
+            populateReportSelectors() {
+                const monthSelect = document.getElementById('reportMonth');
+                const yearSelect = document.getElementById('reportYear');
+                const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                const now = new Date();
+
+                // Populate months
+                monthSelect.innerHTML = months.map((month, index) => `<option value="${index}" ${index === now.getMonth() ? 'selected' : ''}>${month}</option>`).join('');
+
+                // Populate years based on transaction data
+                const years = new Set(this.transactions.map(t => new Date(t.timestamp).getFullYear()));
+                if (years.size === 0) {
+                    years.add(now.getFullYear());
+                }
+                const sortedYears = Array.from(years).sort((a, b) => b - a);
+                yearSelect.innerHTML = sortedYears.map(year => `<option value="${year}" ${year === now.getFullYear() ? 'selected' : ''}>${year}</option>`).join('');
+            }
+
+            generateReport() {
+                const month = parseInt(document.getElementById('reportMonth').value);
+                const year = parseInt(document.getElementById('reportYear').value);
+
+                const reportTransactions = this.transactions.filter(t => {
+                    const date = new Date(t.timestamp);
+                    return date.getMonth() === month && date.getFullYear() === year;
+                });
+
+                const monthName = document.getElementById('reportMonth').options[month].text;
+                document.getElementById('reportModalTitle').textContent = `Monthly Report`;
+                document.getElementById('reportModalSubtitle').textContent = `${monthName} ${year}`;
+
+                if (reportTransactions.length === 0) {
+                    document.getElementById('reportContent').innerHTML = `<div class="empty-state"><i class="fas fa-file-alt"></i><div>No data available for this period.</div></div>`;
+                    document.getElementById('reportModal').classList.add('active');
+                    return;
+                }
+
+                // Calculations
+                const income = reportTransactions.filter(t => t.type === 'income').reduce((sum, t) => sum + t.amount, 0);
+                const expenses = reportTransactions.filter(t => t.type === 'expense').reduce((sum, t) => sum + t.amount, 0);
+                const net = income - expenses;
+
+                const categoryTotals = {};
+                reportTransactions.filter(t => t.type === 'expense').forEach(t => {
+                    const category = t.category || 'other';
+                    categoryTotals[category] = (categoryTotals[category] || 0) + t.amount;
+                });
+
+                const topCategories = Object.entries(categoryTotals).sort(([, a], [, b]) => b - a).slice(0, 5);
+
+                // Build HTML
+                let html = `
+                    <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 20px;">
+                        <div class="stat-card income" style="padding: 15px;"><div class="stat-value income">${this.formatCurrency(income)}</div><div class="stat-label">Total Income</div></div>
+                        <div class="stat-card expense" style="padding: 15px;"><div class="stat-value expense">${this.formatCurrency(expenses)}</div><div class="stat-label">Total Expenses</div></div>
+                        <div class="stat-card balance" style="padding: 15px;"><div class="stat-value ${net >= 0 ? 'income' : 'expense'}">${this.formatCurrency(net)}</div><div class="stat-label">Net Savings</div></div>
+                    </div>
+
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">Top Spending Categories</h4>
+                    ${topCategories.length > 0 ? topCategories.map(([category, amount]) => `
+                        <div class="budget-item" style="margin-bottom: 10px;">
+                            <div class="budget-header">
+                                <span class="budget-name">${this.getCategoryIcon(category)} ${category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                                <span class="budget-amount">${this.formatCurrency(amount)}</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${(amount / expenses) * 100}%;"></div>
+                            </div>
+                        </div>
+                    `).join('') : '<p>No expenses recorded for this month.</p>'}
+
+                    <h4 style="color: var(--primary); margin-top: 30px; margin-bottom: 15px;">All Transactions (${reportTransactions.length})</h4>
+                    <div id="reportTransactionsList">
+                        ${reportTransactions.sort((a, b) => b.timestamp - a.timestamp).map(t => `
+                            <div class="transaction-item ${t.type}" style="padding: 10px; margin-bottom: 5px;">
+                                <div class="transaction-main">
+                                    <div class="transaction-info">
+                                        <div class="transaction-desc">${t.description}</div>
+                                        <div class="transaction-date"><i class="fas fa-clock"></i> ${t.date}</div>
+                                    </div>
+                                    <div class="transaction-amount ${t.type}">
+                                        ${t.type === 'income' ? '+' : '-'}${this.formatCurrency(t.amount)}
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+
+                document.getElementById('reportContent').innerHTML = html;
+                document.getElementById('reportModal').classList.add('active');
+            }
+
+            processRecurringTransactions() {
+                const today = new Date();
+                let newTransactionsAdded = false;
+
+                this.recurring.forEach(item => {
+                    let nextDueDate = this.calculateNextDueDate(new Date(item.lastAdded), item.frequency);
+
+                    // Loop to add any missed transactions (e.g., if user was away)
+                    while (nextDueDate <= today) {
+                        const transaction = {
+                            id: Date.now() + Math.random(), // Add random to avoid collision
+                            description: item.description,
+                            amount: item.amount,
+                            type: item.type,
+                            category: item.category,
+                            notes: `Recurring transaction (${item.frequency})`,
+                            date: nextDueDate.toLocaleDateString('en-AE'),
+                            time: '00:00',
+                            timestamp: nextDueDate.getTime(),
+                            fullDateTime: nextDueDate.toLocaleString('en-AE')
+                        };
+
+                        this.transactions.unshift(transaction);
+                        item.lastAdded = nextDueDate.toISOString();
+                        newTransactionsAdded = true;
+
+                        // Calculate the next due date for the loop
+                        nextDueDate = this.calculateNextDueDate(new Date(item.lastAdded), item.frequency);
+                    }
+                });
+
+                if (newTransactionsAdded) {
+                    this.showToast('Recurring transactions have been automatically added.', 'info');
+                    this.saveTransactions();
+                    this.saveRecurring();
+                    this.updateDisplay();
+                    this.updateChart();
+                }
+            }
+
+            calculateNextDueDate(lastDate, frequency) {
+                let nextDate = new Date(lastDate);
+                switch (frequency) {
+                    case 'weekly':
+                        nextDate.setDate(nextDate.getDate() + 7);
+                        break;
+                    case 'monthly':
+                        nextDate.setMonth(nextDate.getMonth() + 1);
+                        break;
+                    case 'yearly':
+                        nextDate.setFullYear(nextDate.getFullYear() + 1);
+                        break;
+                }
+                return nextDate;
             }
 
             checkBudgetAlerts() {
@@ -1659,7 +2589,7 @@
                     container.innerHTML = `
                         <div class="insight-item">
                             <div class="insight-icon"><i class="fas fa-rocket"></i></div>
-                            <div class="insight-text">Welcome to UAE Finance Pro++! Start by adding your first transaction to see personalized insights.</div>
+                            <div class="insight-text">Welcome to DANVAH Finance Pro++! Start by adding your first transaction to see personalized insights.</div>
                         </div>
                     `;
                     return;
@@ -1800,6 +2730,31 @@
                     });
                 }
 
+                // 5-day streak
+                if (!this.achievements.includes('five_day_streak')) {
+                    const transactionTimestamps = this.transactions.map(t => t.timestamp);
+                    const uniqueDays = [...new Set(transactionTimestamps.map(ts => new Date(ts).setHours(0, 0, 0, 0)))].sort((a, b) => b - a);
+
+                    if (uniqueDays.length >= 5) {
+                        let streak = 1;
+                        for (let i = 0; i < uniqueDays.length - 1; i++) {
+                            const day = uniqueDays[i];
+                            const prevDay = uniqueDays[i + 1];
+                            const oneDay = 24 * 60 * 60 * 1000;
+
+                            if (day - prevDay === oneDay) {
+                                streak++;
+                            } else if (day - prevDay > oneDay) {
+                                break; // Streak is broken
+                            }
+                        }
+
+                        if (streak >= 5) {
+                            newAchievements.push({ id: 'five_day_streak', title: 'Consistent Saver', description: 'Added transactions for 5 days in a row', icon: 'fa-calendar-check' });
+                        }
+                    }
+                }
+
                 // Save new achievements
                 newAchievements.forEach(achievement => {
                     this.achievements.push(achievement.id);
@@ -1818,14 +2773,15 @@
                     { id: 'ten_transactions', title: 'Active Tracker', description: 'Recorded 10 transactions', icon: 'fa-chart-line' },
                     { id: 'fifty_transactions', title: 'Finance Pro', description: 'Recorded 50 transactions', icon: 'fa-trophy' },
                     { id: 'first_budget', title: 'Budget Master', description: 'Set your first budget limit', icon: 'fa-bullseye' },
-                    { id: 'positive_balance', title: 'In the Green', description: 'Maintained positive balance', icon: 'fa-arrow-up' }
+                    { id: 'positive_balance', title: 'In the Green', description: 'Maintained positive balance', icon: 'fa-arrow-up' },
+                    { id: 'five_day_streak', title: 'Consistent Saver', description: 'Added transactions for 5 days in a row', icon: 'fa-calendar-check' }
                 ];
 
                 const earned = achievementsList.filter(a => this.achievements.includes(a.id));
 
                 if (earned.length > 0) {
                     document.getElementById('achievementsCard').style.display = 'block';
-                    document.getElementById('achievementsList').innerHTML = earned.map(achievement => `
+                    document.getElementById('achievementsList').innerHTML = earned.map(achievement => ` 
                         <div class="achievement-badge">
                             <i class="fas ${achievement.icon}"></i>
                             <span>${achievement.title}</span>
@@ -1884,25 +2840,11 @@
                 counter.style.color = notes.length > 180 ? 'var(--danger)' : 'var(--text-secondary)';
             }
 
-            toggleTheme() {
-                const body = document.body;
-                const themeToggle = document.getElementById('themeToggle');
-
-                if (body.classList.contains('dark-theme')) {
-                    body.classList.remove('dark-theme');
-                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                    localStorage.setItem('uae_theme', 'light');
-                } else {
-                    body.classList.add('dark-theme');
-                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                    localStorage.setItem('uae_theme', 'dark');
-                }
-            }
-
             exportData() {
                 const data = {
                     transactions: this.transactions,
                     budgets: this.budgets,
+                    recurring: this.recurring,
                     achievements: this.achievements,
                     exportDate: new Date().toISOString(),
                     version: '2.0'
@@ -1942,6 +2884,11 @@
                             localStorage.setItem('uae_achievements', JSON.stringify(this.achievements));
                         }
 
+                        if (data.recurring) {
+                            this.recurring = data.recurring;
+                            this.saveRecurring();
+                        }
+
                         this.updateDisplay();
                         this.updateChart();
                         this.generateInsights();
@@ -1962,22 +2909,37 @@
 
                 const toast = document.createElement('div');
                 toast.className = `toast toast-${type}`;
-                toast.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: ${type === 'success' ? 'var(--success)' : type === 'error' ? 'var(--danger)' : type === 'warning' ? 'var(--warning)' : 'var(--info)'};
-                    color: white;
-                    padding: 15px 20px;
-                    border-radius: 8px;
-                    box-shadow: var(--shadow);
-                    z-index: 10000;
-                    max-width: 300px;
-                    font-weight: 500;
-                    animation: slideInRight 0.3s ease-out;
-                `;
 
-                toast.textContent = message;
+                if (type === 'info' && message.includes('Welcome')) {
+                    toast.style.cssText = `
+                        position: fixed; top: 20px; right: 20px;
+                        background: linear-gradient(135deg, var(--uae-green), var(--uae-red));
+                        color: white; padding: 15px 20px; border-radius: 8px;
+                        box-shadow: var(--shadow); z-index: 10000; max-width: 320px;
+                        animation: slideInRight 0.3s ease-out; display: flex; align-items: center; gap: 15px;
+                    `;
+                    toast.innerHTML = `
+                        <i class="fas fa-hand-sparkles" style="font-size: 2rem;"></i>
+                        <div style="font-weight: 500;">${message}</div>
+                    `;
+                } else {
+                    toast.style.cssText = `
+                        position: fixed;
+                        top: 20px; 
+                        right: 20px;
+                        background: ${type === 'success' ? 'var(--success)' : type === 'error' ? 'var(--danger)' : type === 'warning' ? 'var(--warning)' : 'var(--info)'};
+                        color: ${type === 'info' ? 'var(--uae-black)' : 'white'};
+                        padding: 15px 20px;
+                        border-radius: 8px;
+                        box-shadow: var(--shadow);
+                        z-index: 10000;
+                        max-width: 300px;
+                        font-weight: 500;
+                        animation: slideInRight 0.3s ease-out;
+                    `;
+                    toast.textContent = message;
+                }
+
                 document.body.appendChild(toast);
 
                 setTimeout(() => {
@@ -1995,6 +2957,10 @@
 
             saveTransactions() {
                 localStorage.setItem('uae_transactions_pro', JSON.stringify(this.transactions));
+            }
+
+            saveGoals() {
+                localStorage.setItem('uae_goals', JSON.stringify(this.goals));
             }
 
             autoSave() {
@@ -2035,16 +3001,6 @@
                     minimumFractionDigits: 2
                 }).format(amount);
             }
-        }
-
-        // Global functions for modal handling
-        function closeDeleteModal() {
-            document.getElementById('deleteModal').classList.remove('active');
-            dashboard.deleteId = null;
-        }
-
-        function closeBudgetModal() {
-            dashboard.closeBudgetModal();
         }
 
         // Close modals when clicking outside
@@ -2105,12 +3061,18 @@
             }
             
             .dark-theme {
-                --bg-primary: #1a1a1a;
-                --bg-secondary: #2d2d2d;
-                --bg-card: #2d2d2d;
-                --text-primary: #ffffff;
+                --bg-primary: #000000;
+                --bg-secondary: #1c1c1c;
+                --bg-card: #1c1c1c;
+                --text-primary: #FFFFFF;
                 --text-secondary: #b0b0b0;
                 --border-color: #404040;
+                --primary: var(--uae-red);
+                --secondary: var(--uae-green);
+                --accent: var(--uae-white);
+                --success: var(--uae-green);
+                --danger: var(--uae-red); 
+                --info: var(--uae-white);
             }
             
             .dark-theme .form-control {
@@ -2208,12 +3170,10 @@
         document.addEventListener('DOMContentLoaded', () => {
             dashboard = new UAEFinanceDashboardProPlus();
 
-            // Load saved theme
-            const savedTheme = localStorage.getItem('uae_theme');
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-theme');
-                document.getElementById('themeToggle').innerHTML = '<i class="fas fa-sun"></i>';
-            }
+
+            dashboard.initializeGoals();
+            // Initialize chart after dashboard is created
+            dashboard.initializeChart();
 
             // Load draft if exists
             dashboard.loadDraft();
@@ -2221,10 +3181,16 @@
             // Display achievements
             dashboard.displayAchievements();
 
+            // Display goals
+            dashboard.displayGoals();
+
+            // Display recurring transactions
+            dashboard.displayRecurringTransactions();
+
             // Show welcome message for new users
             if (dashboard.transactions.length === 0) {
                 setTimeout(() => {
-                    dashboard.showToast('Welcome to UAE Finance Pro++! 🇦🇪 Start tracking your finances today!', 'info');
+                    dashboard.showToast('Welcome to DANVAH Finance Dashboard! Start tracking your finances today!', 'info');
                 }, 1000);
             }
         });
